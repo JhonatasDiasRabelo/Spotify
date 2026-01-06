@@ -1,0 +1,342 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #000;
+    color: #fff;
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+}
+
+.sidebar {
+    width: 300px;
+    background-color: #121212;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.logo i {
+    font-size: 28px;
+}
+
+.nav-library {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    color: #b3b3b3;
+    cursor: pointer;
+}
+
+.nav-playlist,
+.nav-podcast {
+    background-color: #242424;
+    padding: 16px;
+    border-radius: 8px;
+}
+
+.nav-playlist h5,
+.nav-podcast h5 {
+    font-size: 14px;
+}
+
+.nav-playlist p,
+.nav-podcast p {
+    font-size: 12px;
+    color: #b3b3b3;
+}
+
+.nav-playlist button,
+.nav-podcast button {
+    margin-top: 12px;
+    background-color: #fff;
+    color: #000;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.nav-footer {
+    margin-top: auto;
+}
+
+.nav-footer a {
+    display: inline-block;
+    font-size: 11px;
+    color: #a7a7a7;
+    text-decoration: none;
+    margin: 4px 8px 0 0;
+}
+
+.nav-lang-button {
+    margin-top: 16px;
+    background: transparent;
+    border: 1px solid #fff;
+    color: #fff;
+    padding: 8px 14px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+main {
+    flex: 1;
+    padding: 24px;
+    overflow-y: auto;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background-color: #242424;
+    padding: 8px 16px;
+    border-radius: 20px;
+    width: 320px;
+}
+
+.search-bar input {
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #fff;
+    width: 100%;
+}
+
+.content {
+    margin-top: 40px;
+}
+
+.content h2 {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 16px;
+}
+
+.artists-grid,
+.albums-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.artist-card,
+.album-card {
+    background-color: #181818;
+    padding: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    position: relative;
+}
+
+.artist-card:hover,
+.album-card:hover {
+    background-color: #282828;
+}
+
+.artist-card img,
+.album-card img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.6);
+    margin-bottom: 12px;
+}
+
+.artist-card img {
+    border-radius: 50%;
+}
+
+.album-card img {
+    border-radius: 6px;
+}
+
+.artist-card h3,
+.album-card h3 {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.artist-card p,
+.album-card p {
+    font-size: 12px;
+    color: #b3b3b3;
+}
+
+.play-button {
+    position: absolute;
+    right: 20px;
+    bottom: 90px;
+    width: 48px;
+    height: 48px;
+    background-color: #1db954;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: 0.3s;
+}
+
+.play-button i {
+    color: #000;
+    font-size: 18px;
+}
+
+.artist-card:hover .play-button,
+.album-card:hover .play-button {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+
+    .container {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        flex-direction: row;
+        align-items: center;
+        gap: 16px;
+        padding: 12px;
+    }
+
+    .nav-playlist,
+    .nav-podcast,
+    .nav-footer,
+    .nav-lang-button {
+        display: none;
+    }
+
+    main {
+        padding: 16px;
+    }
+
+    .search-bar {
+        width: 100%;
+    }
+
+    .content {
+        margin-top: 24px;
+    }
+
+    .content h2 {
+        font-size: 18px;
+    }
+
+    .artists-grid,
+    .albums-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 14px;
+    }
+
+    .artist-card,
+    .album-card {
+        padding: 12px;
+    }
+
+    .artist-card h3,
+    .album-card h3 {
+        font-size: 13px;
+    }
+
+    .artist-card p,
+    .album-card p {
+        font-size: 11px;
+    }
+
+    .play-button {
+        width: 40px;
+        height: 40px;
+        right: 14px;
+        bottom: 80px;
+    }
+
+    .play-button i {
+        font-size: 14px;
+    }
+}
+
+
+:root {
+    --accent: #7c5cff;
+    --card-hover: #2a2a3a;
+}
+
+/* Destaque de identidade */
+.play-button {
+    background-color: var(--accent);
+    box-shadow: 0 8px 20px rgba(124, 92, 255, 0.6);
+}
+
+
+.artist-card,
+.album-card {
+    animation: fadeUp 0.6s ease forwards;
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(16px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+.artist-card,
+.album-card {
+    transition:
+        background-color 0.3s,
+        transform 0.3s,
+        box-shadow 0.3s;
+}
+
+.artist-card:hover,
+.album-card:hover {
+    background-color: var(--card-hover);
+    transform: scale(1.05);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
+}
+
+
+.artist-card:hover .play-button,
+.album-card:hover .play-button {
+    transform: translateY(-8px) scale(1.1);
+}
+
+
+
+.artist-card:active,
+.album-card:active {
+    transform: scale(0.98);
+}
+
+
+.search-bar {
+    transition: box-shadow 0.3s, background-color 0.3s;
+}
+
+.search-bar:focus-within {
+    background-color: #2a2a3a;
+    box-shadow: 0 0 0 2px var(--accent);
+}
